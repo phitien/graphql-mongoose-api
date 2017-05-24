@@ -27,6 +27,7 @@ const UserProfileType = new GraphQLObjectType({
 const UserAccountType = new GraphQLObjectType({
     name: 'UserAccountType',
     fields: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
         kind:  {type: new GraphQLNonNull(GraphQLString)},
     }
 });
@@ -34,6 +35,7 @@ const UserAccountType = new GraphQLObjectType({
 const UserGroupType = new GraphQLObjectType({
     name: 'UserGroupType',
     fields: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         name: {type: new GraphQLNonNull(GraphQLString)},
         description: {type: GraphQLString},
@@ -44,6 +46,7 @@ const UserGroupType = new GraphQLObjectType({
 const UserType = new GraphQLObjectType({
     name: 'UserType',
     fields: {
+        id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         firstName: {type: GraphQLString},
         lastName: {type: GraphQLString},
