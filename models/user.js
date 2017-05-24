@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const UserRightModel = mongoose.model('UserRightModel', new mongoose.Schema({
-    name: mongoose.Schema.Types.String,
+    name: {type: mongoose.Schema.Types.String, required: true, unique: true, index: true},
     description: mongoose.Schema.Types.String,
 }));
 
@@ -17,7 +17,7 @@ const UserAccountModel = mongoose.model('UserAccountModel', new mongoose.Schema(
 
 const UserGroupModel = mongoose.model('UserGroupModel', new mongoose.Schema({
     active: mongoose.Schema.Types.Boolean,
-    name: mongoose.Schema.Types.String,
+    name: {type: mongoose.Schema.Types.String, required: true, unique: true, index: true},
     description: mongoose.Schema.Types.String,
     rights: [{type: mongoose.Schema.Types.ObjectId, ref: 'UserRightModel'}]
 }));

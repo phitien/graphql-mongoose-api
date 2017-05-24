@@ -22,11 +22,23 @@ import {
 
 import getProjection from '../get-projection';
 
+const rights = {
+    type: new GraphQLList(UserRightType),
+    args: {},
+    resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
+        return UserRightModel
+                .find()
+                .select(projection)
+                .exec();
+    }
+}
+
 const users = {
     type: new GraphQLList(UserType),
     args: {},
-    resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         return UserModel
                 .find()
                 .select(projection)
@@ -39,10 +51,10 @@ const user = {
     args: {
         id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         return UserModel
-                .find(params.id)
+                .find(args.id)
                 .select(projection)
                 .exec();
     }
@@ -51,8 +63,8 @@ const user = {
 const groups = {
     type: new GraphQLList(UserGroupType),
     args: {},
-    resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         return UserGroupModel
                 .find()
                 .select(projection)
@@ -65,16 +77,17 @@ const group = {
     args: {
         id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         return UserGroupModel
-                .find(params.id)
+                .find(args.id)
                 .select(projection)
                 .exec();
     }
 }
 
 export default {
+    rights,
     user, users,
     group, groups
 }

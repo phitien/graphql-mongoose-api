@@ -8,7 +8,7 @@ import {
 const UserRightType = new GraphQLObjectType({
     name: 'UserRightType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
+        id: {type: new GraphQLNonNull(GraphQLID)},
         name: {type: new GraphQLNonNull(GraphQLString)},
         description: {type: GraphQLString},
     }
@@ -17,7 +17,7 @@ const UserRightType = new GraphQLObjectType({
 const UserProfileType = new GraphQLObjectType({
     name: 'UserProfileType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
+        id: {type: new GraphQLNonNull(GraphQLID)},
         birthDate: {type: GraphQLString},
         occupation: {type: GraphQLString},
         departament: {type: GraphQLString},
@@ -27,7 +27,6 @@ const UserProfileType = new GraphQLObjectType({
 const UserAccountType = new GraphQLObjectType({
     name: 'UserAccountType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         kind:  {type: new GraphQLNonNull(GraphQLString)},
     }
 });
@@ -35,7 +34,6 @@ const UserAccountType = new GraphQLObjectType({
 const UserGroupType = new GraphQLObjectType({
     name: 'UserGroupType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         name: {type: new GraphQLNonNull(GraphQLString)},
         description: {type: GraphQLString},
@@ -46,7 +44,6 @@ const UserGroupType = new GraphQLObjectType({
 const UserType = new GraphQLObjectType({
     name: 'UserType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         firstName: {type: GraphQLString},
         lastName: {type: GraphQLString},

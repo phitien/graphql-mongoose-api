@@ -23,8 +23,8 @@ const addUserRight = {
     args: {
         data: {name: 'data', type: new GraphQLNonNull(UserRightInputType)}
     },
-    async resolve (root, params, options) {
-        const model = new UserRightModel(params.data);
+    async resolve (root, args, context, options) {
+        const model = new UserRightModel(args.data);
         const instance = await model.save();
         if (!instance) {
             throw new Error('Error adding new user right');
@@ -38,8 +38,8 @@ const addUserGroup = {
     args: {
         data: {name: 'data', type: new GraphQLNonNull(UserGroupInputType)}
     },
-    async resolve (root, params, options) {
-        const model = new UserGroupModel(params.data);
+    async resolve (root, args, context, options) {
+        const model = new UserGroupModel(args.data);
         const instance = await model.save();
         if (!instance) {
             throw new Error('Error adding new user group');
@@ -53,8 +53,8 @@ const addUserProfile = {
     args: {
         data: {name: 'data', type: new GraphQLNonNull(UserProfileInputType)}
     },
-    async resolve (root, params, options) {
-        const model = new UserProfileModel(params.data);
+    async resolve (root, args, context, options) {
+        const model = new UserProfileModel(args.data);
         const instance = await model.save();
         if (!instance) {
             throw new Error('Error adding new user profile');
@@ -68,8 +68,8 @@ const addUserAccount = {
     args: {
         data: {name: 'data', type: new GraphQLNonNull(UserAccountInputType)}
     },
-    async resolve (root, params, options) {
-        const model = new UserAccountModel(params.data);
+    async resolve (root, args, context, options) {
+        const model = new UserAccountModel(args.data);
         const instance = await model.save();
         if (!instance) {
             throw new Error('Error adding new user account');
@@ -83,8 +83,8 @@ const addUser = {
     args: {
         data: {name: 'data', type: new GraphQLNonNull(UserInputType)}
     },
-    async resolve (root, params, options) {
-        const model = new UserModel(params.data);
+    async resolve (root, args, context, options) {
+        const model = new UserModel(args.data);
         const instance = await model.save();
         if (!instance) {
             throw new Error('Error adding new user');

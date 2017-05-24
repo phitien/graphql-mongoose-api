@@ -14,12 +14,12 @@ import getProjection from '../../get-projection';
 const removeUserRight = {
     type: GraphQLBoolean,
     args: {
-        _id: {name: '_id', type: new GraphQLNonNull(GraphQLID)}
+        id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    async resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    async resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         const model = await UserRightModel
-                        .findByIdAndRemove(params._id, {select: projection})
+                        .findByIdAndRemove(args.id, {select: projection})
                         .exec();
         if (!model) {
             throw new Error('Error removing user right');
@@ -31,12 +31,12 @@ const removeUserRight = {
 const removeUserGroup = {
     type: GraphQLBoolean,
     args: {
-        _id: {name: '_id', type: new GraphQLNonNull(GraphQLID)}
+        id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    async resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    async resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         const model = await UserGroupModel
-                        .findByIdAndRemove(params._id, {select: projection})
+                        .findByIdAndRemove(args.id, {select: projection})
                         .exec();
         if (!model) {
             throw new Error('Error removing user group');
@@ -48,12 +48,12 @@ const removeUserGroup = {
 const removeUserProfile = {
     type: GraphQLBoolean,
     args: {
-        _id: {name: '_id', type: new GraphQLNonNull(GraphQLID)}
+        id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    async resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    async resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         const model = await UserProfileModel
-                        .findByIdAndRemove(params._id, {select: projection})
+                        .findByIdAndRemove(args.id, {select: projection})
                         .exec();
         if (!model) {
             throw new Error('Error removing user profile');
@@ -65,12 +65,12 @@ const removeUserProfile = {
 const removeUserAccount = {
     type: GraphQLBoolean,
     args: {
-        _id: {name: '_id', type: new GraphQLNonNull(GraphQLID)}
+        id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    async resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    async resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         const model = await UserAccountModel
-                        .findByIdAndRemove(params._id, {select: projection})
+                        .findByIdAndRemove(args.id, {select: projection})
                         .exec();
         if (!model) {
             throw new Error('Error removing user account');
@@ -82,12 +82,12 @@ const removeUserAccount = {
 const removeUser = {
     type: GraphQLBoolean,
     args: {
-        _id: {name: '_id', type: new GraphQLNonNull(GraphQLID)}
+        id: {name: 'id', type: new GraphQLNonNull(GraphQLID)}
     },
-    async resolve (root, params, options) {
-        const projection = getProjection(options.fieldASTs[0]);
+    async resolve (root, args, context, options) {
+        const projection = getProjection(options.fieldNodes[0]);
         const model = await UserModel
-                        .findByIdAndRemove(params._id, {select: projection})
+                        .findByIdAndRemove(args.id, {select: projection})
                         .exec();
         if (!model) {
             throw new Error('Error removing user right');

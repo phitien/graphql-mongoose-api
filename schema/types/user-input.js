@@ -8,7 +8,6 @@ import {
 const UserRightInputType = new GraphQLInputObjectType({
     name: 'UserRightInputType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         name: {type: new GraphQLNonNull(GraphQLString)},
         description: {type: GraphQLString},
     }
@@ -17,7 +16,6 @@ const UserRightInputType = new GraphQLInputObjectType({
 const UserProfileInputType = new GraphQLInputObjectType({
     name: 'UserProfileInputType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         birthDate: {type: GraphQLString},
         occupation: {type: GraphQLString},
         departament: {type: GraphQLString},
@@ -27,7 +25,6 @@ const UserProfileInputType = new GraphQLInputObjectType({
 const UserAccountInputType = new GraphQLInputObjectType({
     name: 'UserAccountInputType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         kind:  {type: new GraphQLNonNull(GraphQLString)},
     }
 });
@@ -35,7 +32,6 @@ const UserAccountInputType = new GraphQLInputObjectType({
 const UserGroupInputType = new GraphQLInputObjectType({
     name: 'UserGroupInputType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         name: {type: new GraphQLNonNull(GraphQLString)},
         description: {type: GraphQLString},
@@ -46,7 +42,6 @@ const UserGroupInputType = new GraphQLInputObjectType({
 const UserInputType = new GraphQLInputObjectType({
     name: 'UserInputType',
     fields: {
-        _id: {type: new GraphQLNonNull(GraphQLID)},
         active: {type: GraphQLBoolean},
         firstName: {type: GraphQLString},
         lastName: {type: GraphQLString},

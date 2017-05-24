@@ -8,7 +8,8 @@ const app = express();
 
 app.use('/api', graphqlHTTP(req => ({
     schema,
-    pretty: true
+    pretty: true,
+    graphiql: true
 })));
 
 mongoose.connect('mongodb://localhost/server');
